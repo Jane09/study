@@ -10,6 +10,10 @@ public class MessageProducer extends UntypedAbstractActor {
 
     @Override
     public void onReceive(Object message) throws Throwable {
+        if(message instanceof Message) {
 
+        }else {
+            unhandled(message);
+        }
     }
 }
