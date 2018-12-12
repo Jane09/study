@@ -20,7 +20,7 @@ public class ActorDemo {
         ActorSystem system = ActorSystem.create("actors");
         Props props1 = Props.create(MyActor.class);
         ActorRef ref = system.actorOf(props1);
-        for(int i=1;i<=10;i++){
+        for(int i=1;i<=1000;i++){
             ref.tell("hello_"+i,ActorRef.noSender());
         }
 
@@ -32,7 +32,7 @@ public class ActorDemo {
         //careful,not recommended
 //        Props props3 = Props.create(ActorWithArgs.class, () -> new ActorWithArgs("arg"));
 
-        system.stop(ref);
+//        system.stop(ref);
     }
 
     @AllArgsConstructor
@@ -68,6 +68,10 @@ public class ActorDemo {
         public Receive createReceive() {
             return receiveBuilder().match(String.class, s -> {
                 log.info("Received String message: {}", s);
+//                int i=0;
+//                while (i<100000) {
+//                    i++;
+//                }
             })
                     .matchAny(o -> log.info("received unknown message"))
                     .build();
