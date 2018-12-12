@@ -32,7 +32,7 @@ public class ActorDemo {
         //careful,not recommended
 //        Props props3 = Props.create(ActorWithArgs.class, () -> new ActorWithArgs("arg"));
 
-//        system.stop(ref);
+        system.stop(ref);
     }
 
     @AllArgsConstructor
